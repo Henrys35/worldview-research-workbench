@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "worldview-scout"
+version = "0.1.0"
+description = "按市场/时间/播放门槛找竞品账号，抓公开证据，归纳内容世界观"
+requires-python = ">=3.12"
+dependencies = [
+  "pydantic>=2.7",
+  "pyyaml>=6.0",
+]
+
+[project.optional-dependencies]
+# 只有走进阶那条路（scout login / search）才需要，主路用不上。
+browser = ["playwright>=1.48"]
+dev = ["pytest>=8.0", "ruff>=0.5"]
+
+[project.scripts]
+scout = "scout.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["scout*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+ignore = ["E701", "E702", "E731"]

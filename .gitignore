@@ -1,0 +1,21 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+# 调研产出一律放仓库外；登录态与密钥永不入库
+runs/
+out/
+*session*.json
+*cookies*.json
+.env
+
+.env.*
+!.env.example
+credentials.json
+viral-api.json
+chrome-profile/
+*.sqlite*
+*.log
+.DS_Store
